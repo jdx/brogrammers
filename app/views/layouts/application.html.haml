@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %title brogrammers.co
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{ 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse' }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{ href: root_path} brogrammers.co
+          .nav-collapse
+            %ul.nav
+            - if brogrammer_signed_in?
+              %ul.nav.pull-right
+                %li.dropdown
+                  %a.dropdown-toggle{ href: '#', 'data-toggle' => 'dropdown' }
+                    = current_brogrammer
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li= link_to "Logout", brogrammer_session_path, method: :delete
+              - else
+                %ul.nav.pull-right
+                  %li= link_to "Login", new_brogrammer_session_path
+                  %li= link_to "Apply", new_brogrammer_registration_path
+    .container
+      - flash.each do |name, msg|
+        %div{ class: "alert alert-#{name == :notice ? "success" : "error"}" }
+          %a{ class: "close", 'data-dismiss' => "alert" } &times;
+          = msg
+      = yield
+      %hr
+      %footer
+        .pull-right
+          A Jeff Dickey production

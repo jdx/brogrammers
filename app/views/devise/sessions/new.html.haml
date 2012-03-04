@@ -1,0 +1,11 @@
+.row
+  .span5.offset4
+    .hero-unit
+      %h2 Sign in
+      = simple_form_for resource, url: brogrammer_session_path do |f|
+        %fieldset
+          %legend
+          = f.input :handle, :autofocus => true
+          = f.input :password
+          = f.input :remember_me, as: :hidden, value: true
+          = f.button :submit, "Login", class: 'btn-primary btn-large'
