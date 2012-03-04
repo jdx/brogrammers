@@ -2,5 +2,5 @@ language: ruby
 rvm:
   - 1.9.2
   - 1.9.3
-before_script: rake db:test:prepare
+before_script: rake db:schema:load
 after_script: rails_best_practices
