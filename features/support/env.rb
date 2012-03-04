@@ -7,6 +7,10 @@ Spork.prefork do
   ActionController::Base.allow_rescue = false
   DatabaseCleaner.strategy = :transaction
   Cucumber::Rails::Database.javascript_strategy = :truncation
+  load_schema = lambda {
+    load "#{Rails.root.to_s}/db/schema.rb" 
+  }
+  silence_stream(STDOUT, &load_schema) 
 end
 
 Spork.each_run do

@@ -23,6 +23,7 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'rails_best_practices'
   gem 'cucumber-rails'
   gem 'database_cleaner'
