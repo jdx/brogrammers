@@ -119,6 +119,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.1.0)
     multi_xml (0.4.1)
+    newrelic_rpm (3.3.2)
     nokogiri (1.5.0)
     orm_adapter (0.0.6)
     pg (0.13.2)
@@ -226,6 +227,7 @@ DEPENDENCIES
   jquery-rails
   json
   launchy
+  newrelic_rpm
   pg
   rails
   rails_best_practices
