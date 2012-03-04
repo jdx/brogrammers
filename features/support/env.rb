@@ -7,7 +7,6 @@ Spork.prefork do
   ActionController::Base.allow_rescue = false
   DatabaseCleaner.strategy = :transaction
   Cucumber::Rails::Database.javascript_strategy = :truncation
-  ActiveRecord::Migrator.migrate('db/migrate')
 end
 
 Spork.each_run do
