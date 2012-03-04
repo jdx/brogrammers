@@ -2,5 +2,5 @@ language: ruby
 rvm:
   - 1.9.2
   - 1.9.3
-script: bundle exec cucumber
+script: bundle exec cucumber -f progress
 after_script: bundle exec rails_best_practices
